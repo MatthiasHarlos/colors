@@ -18,6 +18,13 @@ public class ColorsController {
         return "redirect:colorForm";
     }
 
+    @GetMapping("delete")
+    public String deleteAll() {
+        colors = new ArrayList<>();
+        counter = 0;
+        return "start";
+    }
+
     @GetMapping("colorForm")
     public String colorForm() {
         return "colorForm";
