@@ -13,6 +13,11 @@ public class ColorsController {
     private static List<Color> colors = new ArrayList<>();
     private static int counter;
 
+    @GetMapping("/")
+    public String redirect() {
+        return "redirect:colorForm";
+    }
+
     @GetMapping("colorForm")
     public String colorForm() {
         return "colorForm";
@@ -26,6 +31,9 @@ public class ColorsController {
 
     @GetMapping("start")
     public String start(Model model) {
+        if (colors.size() < 1) {
+            return "redirect:colorForm";
+        }
         counter++;
         if (counter == colors.size()) {
             counter = 0;
