@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Farbeingabe</title>
+    <style>
+        body {
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 20%;
+        }
+    </style>
 </head>
-<body>
+<body th:style="${backgroundColor}">
+<h1 th:style="${colorText}"> Willkommen bei deiner Farben-Disco!</h1>
 
 <form method="post" action="colorForm" th:object="${color}">
     <input id="color" name="color">

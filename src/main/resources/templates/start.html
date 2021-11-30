@@ -3,8 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Farben</title>
+
+    <style>
+        body {
+        margin: 0 auto;
+        text-align: center;
+        }
+        div {
+        width: 1px;
+        height: 1px;
+        transform: rotate(0deg);
+        position: absolute;
+
+        }
+        @keyframes mymove {
+        from {width: 1px; height: 1px; transform: rotate(0deg);}
+        to {width: 700px; height: 450px; transform: rotate(360deg); border-radius: 100px; border: pink 2px;}
+        }
+        .disco {
+        animation: disco 1s infinite;
+        }
+        @keyframes disco {
+        from {color: black;}
+        to {color: red;}
+        }
+    </style>
 </head>
 <body th:style="${colorOutput}">
+<h3 class="disco">Disco, Disco!</h3>
 <Form method="get" action="start">
     <button type="submit">Farbe wechseln</button>
 </Form>
@@ -14,5 +40,7 @@
 <Form method="get" action="colorForm">
     <button type="submit">weitere Farben hinzufügen</button>
 </Form>
+<p style="height:200px; width: 100px"></p>
+<div th:each="color : ${colors}" th:style="${color.getBackgroundStyle()}"></div>
 </body>
 </html>

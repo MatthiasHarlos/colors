@@ -26,13 +26,23 @@ public class ColorsController {
     }
 
     @GetMapping("colorForm")
-    public String colorForm() {
+    public String colorForm(Model model) {
+        if (colors.size() > 0) {
+            model.addAttribute("backgroundColor", "background-color:" + colors.get(colors.size()-1).getColor());
+        }
+        if (colors.size() > 1) {
+            model.addAttribute("colorText", "color:" + colors.get(colors.size()-2).getColor());
+        }
         return "colorForm";
     }
 
     @PostMapping("colorForm")
-    public String yyy(Color color) {
+    public String yyy(Model model, Color color) {
         colors.add(color);
+        model.addAttribute("backgroundColor", "background-color:" + colors.get(colors.size()-1).getColor());
+        if (colors.size() > 1) {
+            model.addAttribute("colorText", "color:" + colors.get(colors.size()-2).getColor());
+        }
         return "colorForm";
     }
 
@@ -46,6 +56,7 @@ public class ColorsController {
             counter = 0;
         }
         model.addAttribute("colorOutput", "background-color:" + colors.get(counter).getColor());
+        model.addAttribute("colors", colors);
         return "start";
     }
 
