@@ -58,6 +58,7 @@ public class ColorsController {
             counter = 0;
         }
         model.addAttribute("colorOutput", "background-color:" + colors.get(counter).getColor());
+        model.addAttribute("colorText", "color:" + colors.get(counter).getColor());
         model.addAttribute("colors", colors);
         if (durationColor != null) {
             model.addAttribute("duration", durationColor.getDuration());
