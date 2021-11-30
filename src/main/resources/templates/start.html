@@ -35,14 +35,25 @@
         to {width: 100px; height: 100px;  border-radius: 100px; border: pink 2px; font-size: 120px; margin-left: 50%;}
         }
 
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+
+        input[type=number] {
+        -moz-appearance: textfield;
+        }
+
     </style>
-    <meta http-equiv="refresh" content="5">
+    <meta http-equiv="refresh" th:content="${duration}">
 </head>
 
 <body th:style="${colorOutput}">
 <h3 class="disco">Disco, Disco!</h3>
-<Form method="get" action="start">
-    <button type="submit">Farbe wechseln</button>
+<Form method="post" action="start" th:object="${colores}">
+    <input id="duration" name="duration" type="number" style="width: 50px" max="100">
+    <button type="submit">Wechsel Disco Zeit</button>
 </Form>
 <Form method="get" action="delete">
     <button type="submit">Farben löschen</button>

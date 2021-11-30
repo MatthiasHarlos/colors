@@ -12,6 +12,7 @@ import java.util.List;
 public class ColorsController {
     private static List<Color> colors = new ArrayList<>();
     private static int counter;
+    private static Color durationColor;
 
     @GetMapping("/")
     public String redirect() {
@@ -57,7 +58,15 @@ public class ColorsController {
         }
         model.addAttribute("colorOutput", "background-color:" + colors.get(counter).getColor());
         model.addAttribute("colors", colors);
+        if (durationColor != null) {
+            model.addAttribute("duration", durationColor.getDuration());
+        }
         return "start";
+    }
+    @PostMapping("start")
+    public String durationTime(Color color) {
+        durationColor = color;
+        return "redirect:start";
     }
 
 }

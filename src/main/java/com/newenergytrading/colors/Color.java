@@ -3,6 +3,7 @@ package com.newenergytrading.colors;
 public class Color {
 
     private String color;
+    private int duration;
 
     public String getColor() {
         return color;
@@ -34,5 +35,13 @@ public class Color {
         int z = (int) (Math.random()*50+1);
         int zk = (int) (Math.random()*10+1);
         return "color:" + color + "; animation: discoMove " + (Math.random()*7+1.1) + "s infinite" + "; border-radius: " + Math.random() +"px" + "; transform: rotate(" + Math.random() + "deg);" + "; width: " + Math.random() + "; margin-left: " + z + "%;" + " margin-top: " + zk + "%;" + " z-index:2;";
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 }

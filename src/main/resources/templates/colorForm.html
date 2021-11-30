@@ -15,7 +15,7 @@
 <h1 th:style="${colorText}"> Willkommen bei deiner Farben-Disco!</h1>
 
 <form method="post" action="colorForm" th:object="${color}">
-    <input id="color" name="color">
+    <input id="color" name="color" type="color">
     <button type="submit">Ok!</button>
 </form>
 <form method="get" action="start">
