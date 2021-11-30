@@ -23,6 +23,7 @@ public class ColorsController {
     public String deleteAll() {
         colors = new ArrayList<>();
         counter = 0;
+        durationColor = new Color();
         return "start";
     }
 
