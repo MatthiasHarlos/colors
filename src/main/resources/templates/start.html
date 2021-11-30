@@ -14,11 +14,14 @@
         height: 1px;
         transform: rotate(0deg);
         position: absolute;
-
         }
         @keyframes mymove {
-        from {width: 1px; height: 1px; transform: rotate(0deg);}
-        to {width: 700px; height: 450px; transform: rotate(360deg); border-radius: 100px; border: pink 2px;}
+        from {width: 1px; height: 1px; transform: rotate(0deg); font-size: 12px;}
+        to {width: 700px; height: 450px; transform: rotate(360deg); border-radius: 100px; border: pink 2px; font-size: 120px;}
+        }
+        @keyframes mymove2 {
+        from {width: 1px; height: 1px; transform: rotate(0deg); font-size: 12px;}
+        to {width: 700px; height: 700px; transform: rotate(360deg); border-radius: 700px; border: pink 2px; font-size: 120px;}
         }
         .disco {
         animation: disco 1s infinite;
@@ -27,6 +30,11 @@
         from {color: black;}
         to {color: red;}
         }
+        @keyframes discoMove {
+        from {width: 1px; height: 1px; transform: rotate(0deg); font-size: 12px;}
+        to {width: 100px; height: 100px;  border-radius: 100px; border: pink 2px; font-size: 120px; margin-left: 50%;}
+        }
+
     </style>
 </head>
 <body th:style="${colorOutput}">
@@ -40,7 +48,16 @@
 <Form method="get" action="colorForm">
     <button type="submit">weitere Farben hinzufügen</button>
 </Form>
+<div th:each="color : ${colors}" th:style="${color.getBackgroundStyle2()}"></div>
 <p style="height:200px; width: 100px"></p>
+<div th:each="color : ${colors}" th:style="${color.getDiscoMove()}">DISCO!</div>
+<p style="height:100px; width: 100px"></p>
 <div th:each="color : ${colors}" th:style="${color.getBackgroundStyle()}"></div>
+<div th:each="color : ${colors}" th:style="${color.getStarStyle()}">☆</div>
+<p style="height:50px; width: 100px"></p>
+<div th:each="color : ${colors}" th:style="${color.getStarStyle()}">☆</div>
+<p style="height:50px; width: 100px"></p>
+
+
 </body>
 </html>
